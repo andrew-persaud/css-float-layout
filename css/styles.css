@@ -1,215 +1,134 @@
-/*
-
-Light blue: #65a9ff
-Medium blue: #54a0ff
-Dark blue: #2184ff
-*/
-
-
-/* 
-BEM Style:
-
-.block
-.block__element
-.block__element--modifier
-
-*/
-
-
-/*
-px to rem:
-
-rem is always in relation to the root font-size. So set the root font size,
-and change all our measurements to rem.
-
-1.) Set html to 62.5%
-2.) Set body to 1.6rem.
-
-
-*/
-
-
-
-/* Start of setup and reset
-    Padding gives a nice border look */
-
-* {
-    margin : 0;
-    padding: 0;
-    box-sizing: inherit;
-}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; }
 
 html {
-    font-size : 62.5%;
-}
+  font-size: 62.5%; }
 
 body {
-    font-family :'Lato', sans-serif;
-    font-weight: 400;
-    line-height: 1.7;
-    color : #777;
-    padding: 3rem;
-    box-sizing: border-box;
-}
+  box-sizing: border-box; }
 
-/* End of setup and reset */
+@keyframes moveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  80% {
+    transform: translateX(2.5rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-2.5rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
 
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
 
-/*
-    The height is what you see in the browser view
-    linear-gradient, set opacity
-    clip-path is a nice touch to shape the header
-    co-ordinate system start top left and goes downwards. TL, TR, BR, BL
-
-*/
-.header {
-    height : 95vh;
-    background-image: linear-gradient(to right bottom,hsla(214, 100%, 70%, 0.808), hsla(213, 100%, 56%, 0.808)), url(../img/bg1.jpg);
-    background-size: cover;
-    background-position: top;
-    clip-path:  polygon(0 0, 100% 0, 100% 80vh, 0 100%);
-    position: relative;
-}
-
-
-/* Put the logo in a div so that we can move it around where we want
-    Use absolute positioning
-    Set the parent to relative, which is the header */
-
-.header__logo-box {
-    position : absolute;
-    top : 4rem;
-    left: 4rem;
-}
-
-.header__logo {
-    height: 9rem;
-    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
-
-}
-
-/* You want the h1 in a div so you can position it as well.
-Use a h1 with two spans inside if you want a main and a sub
-Need to make them blocks so that they go on their own line
-Design: Bigger font sizes have lower font weights
-Design: Factor out styles that are similar to multiple elements */
-
-
-/* TIPS AND TRICKS:
-
-Centering:
-
--absolute positioning
--say the top is 50% and left is 50%
--then use transform: translate(-50%, -50%)
-
-
-*/
-
-.header__header-title {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform : translate(-50%, -50%);
-    text-align: center;
-}
 .heading-primary {
-    color: #fff;
-    text-transform: uppercase;
-    margin-bottom: 6rem;
-   
-}
-
-.heading-primary--main {
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 6rem; }
+  .heading-primary--main {
     display: block;
     font-size: 6rem;
     font-weight: 400;
     letter-spacing: 3.5rem;
     animation-name: moveInLeft;
-    animation-duration: 1s;
-}
-
-.heading-primary--sub {
+    animation-duration: 1s; }
+  .heading-primary--sub {
     display: block;
     font-size: 2rem;
     font-weight: 2rem;
     letter-spacing: 1.7rem;
     animation-name: moveInRight;
-    animation-duration: 1s;
+    animation-duration: 1s; }
 
-}
+.btn:link {
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  font-size: 1.6rem; }
 
-
-/* Animations 
-    properties: animation-name, animation-duration, animation-timing-function
-*/
-
-@keyframes moveInLeft {
-    0% {
-        opacity: 0;
-        transform: translateX(-10rem);
-    }
-
-    80% {
-        transform: translateX(2.5rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-@keyframes moveInRight {
-    0% {
-        opacity: 0;
-        transform: translateX(10rem);
-    }
-
-    80% {
-        transform: translateX(-2.5rem);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translate(0);
-    }
-}
-
-
-
-/* Animated buttons 
-    Pseudo elements
-    Pseudo classes
-
-    Give it padding, set to inline block and give it a border radius
-
-    Can move it up when hovering using transform: translate
-
-    Box-shadow, x y blur color
-*/
-
-.btn:link,
 .btn:visited {
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    border-radius: 10rem;
-    transition: all .2s;
-    font-size: 1.6rem;
-}
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 10rem;
+  transition: all .2s;
+  font-size: 1.6rem; }
 
 .btn:hover {
-    transform: translateY(-0.3rem);
-    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
-
-}
+  transform: translateY(-0.3rem);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
 
 .btn-white {
-    background-color: #fff;
-    color: #777;
-}
+  background-color: #fff;
+  color: #777; }
 
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(101, 169, 255, 0.808), rgba(33, 132, 255, 0.808)), url(../img/bg1.jpg);
+  background-size: cover;
+  background-position: top;
+  clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 9rem;
+    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%); }
+  .header__header-title {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
 
+.row {
+  max-width: 114rem;
+  background-color: #eee;
+  margin: 0 auto;
+  margin-bottom: 8rem; }
+  .row:not(:last-child) {
+    margin-bottom: 8rem; }
+  .row::after {
+    content: '';
+    display: table;
+    clear: both; }
+  .row [class^="col-"] {
+    float: left;
+    background-color: #65a9ff; }
+    .row [class^="col-"]:not(:last-child) {
+      margin-right: 6rem; }
+  .row .col-1-of-2 {
+    width: calc((100% - 6rem) / 2); }
+  .row .col-1-of-3 {
+    width: calc((100% - (2 * 6rem)) / 3); }
+  .row .col-2-of-3 {
+    width: calc( 2 * ((100% - (2 * 6rem)) / 3) + 6rem); }
+  .row .col-1-of-4 {
+    width: calc((100% - (3 * 6rem)) / 4); }
+  .row .col-2-of-4 {
+    width: calc(2 *((100% - (3 * 6rem)) / 4) + 6rem); }
+  .row .col-3-of-4 {
+    width: calc(3 *((100% - (3 * 6rem)) / 4) + 2 * 6rem); }
