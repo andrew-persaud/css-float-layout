@@ -1,0 +1,23 @@
+
+.btn {
+
+    &:link {
+        @include button-style();
+    }
+
+    &:visited {
+        @include button-style();
+    }
+
+    &:hover {
+        transform: translateY(-0.3rem);
+        box-shadow: 0 1rem 2rem rgba($color-black,.2);
+    }
+    
+}
+
+
+.btn-white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+}
