@@ -1,6 +1,5 @@
 .row {
     max-width : $row-width;
-    background-color: #eee;
     margin: 0 auto;
     margin-bottom : $gap-y;
 
@@ -14,7 +13,7 @@
         &:not(:last-child) {
             margin-right: $gap-x;
         }
-        background-color: $color-primary-light;
+       
     }
 
     .col-1-of-2 {
